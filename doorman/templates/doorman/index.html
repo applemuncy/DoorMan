@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+<title>Django Index</title>
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+<body>
+{% if latest_access_list %}
+    <ul>
+    {% for accessevent in latest_access_list %}
+        <li><a href="/doorman/{{ accessevent.id }}/">{{ accessevent.doorUser }}</a></li>
+        <li><a href="/doorman/{{ accessevent.id }}/">{{ accessevent.event_date }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No doorUsers are available.</p>
+{% endif %}
+</body>
+</html>
+

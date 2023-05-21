@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+	<title>doorman userprofile list</title>
+    	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+<body>
+<h1>User door access list</h1>
+<ul>
+{% for access in object_list %}
+<li>{{access.doorUser}} - {{ access.event_date }}
+</li>
+{% endfor %}
+<?ul>
+</body>
+</html>
+
