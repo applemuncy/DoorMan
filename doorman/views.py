@@ -49,6 +49,6 @@ class DoorAccessList(ListView):
     model = AccessEvent
     def get_queryset(self, *args, **kwargs):
         num = self.kwargs['pk']
-        qs = AccessEvent.objects.all().filter(doorUser_id = num)
+        qs = AccessEvent.objects.all().filter(user_id = num)
         return qs
 

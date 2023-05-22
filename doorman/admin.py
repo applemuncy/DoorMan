@@ -9,7 +9,7 @@ admin.site.register(UserProfile)
 #admin.site.register(AccessEvent)
 
 class AccessEventAdmin(admin.ModelAdmin):
-    list_displey = ('doorUser',  'event_date')
+    list_displey = ('user',  'event_date')
 
 admin.site.register(AccessEvent, AccessEventAdmin)
 

@@ -6,7 +6,7 @@ from django.conf import settings
 
 class UserProfile(models.Model):
     # This field is required.
-    doorUser = models.OneToOneField(User,on_delete=models.CASCADE,)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,)
     # Other fields here
     rfid_access = models.BooleanField(default=False)
     rfid_tag = models.CharField(max_length=20,blank=True,null=True,unique=True)
@@ -21,7 +21,7 @@ class UserProfile(models.Model):
         print ("in da save, son")
         try:
             mask = 255 # actually this is the 'locked out' - 0 is the 'just log it'
-            existing = UserProfile.objects.all().get(doorUser=self.doorUser)
+            existing = UserProfile.objects.all().get(user=self.user)
 
             self.id = existing.id #force update instead of insert
             if (self.rfid_access):
@@ -36,7 +36,7 @@ class UserProfile(models.Model):
         models.Model.save(self, *args, **kwargs)
 
     def __str__(self):
-        return self.doorUser.username
+        return self.user.username
 
 """
 
@@ -45,10 +45,10 @@ for storing when we let ppl in
 """
 
 class AccessEvent(models.Model):
-    doorUser = models.ForeignKey(User,on_delete=models.CASCADE,)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,)
     event_date = models.DateTimeField(auto_now = True)
     def __str__(self):
-        return self.doorUser.username
-#         return "' ".join([self.doorUser.username, self.event_date])
+        return self.user.username
+#         return "' ".join([self.user.username, self.event_date])
 
 
