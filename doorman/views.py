@@ -13,32 +13,21 @@ from .models import AccessEvent, UserProfile
 
 class IndexView(generic.ListView):
     template_name = "doorman/index.html"
-    context_object_name = "latest_AccessEvent_list"
-    model = AccessEvent
-#    def get_queryset(self):
-#        """Return the last five published questions."""
-#        return AccessEvent.objects.order_by("-event_date")[:5]
-
-'''
-class UserProfileListView(ListView):
+    context_object_name = "userprofile_list"
     model = UserProfile
-    pagenate_by = 5
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["now"] = timezone.now()
-        return context
-'''
-
+    def get_queryset(self, *args, **kwargs):
+        qs = UserProfile.objects.all()
+        return qs
 
 class HomePageView(TemplateView):
     template_name = 'doorman/home.html'
 
-'''
-class DetailView(generic.DetailView):
-    model = UserProfile
-    template_name = "doorman/detail.html"
-'''
+#    def home():
+#        user_list = UserProfile.object
+#        output = ", ".join([n.username for n in user_list])
+#        return HttpResponse(output)
+    
+
 
 class UserProfileDetail(DetailView):
 

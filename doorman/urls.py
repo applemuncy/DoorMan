@@ -4,11 +4,14 @@ from .views import IndexView
 from .views import HomePageView 
 from .views import UserProfileDetail
 from .views import DoorAccessList
+
+
+#from . import views
 app_name = "doorman"
 
 urlpatterns = [
-    
-    path('', HomePageView.as_view(), name='home'),
+    # Landing page 
+    path('', IndexView.as_view(), name="index"),
     
     # detail translates to detail.html
     #

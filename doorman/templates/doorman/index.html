@@ -4,15 +4,34 @@
 <head>
 <title>Django Index</title>
 <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
 </head>
 <body>
-{% if latest_access_list %}
-    <ul>
-    {% for accessevent in latest_access_list %}
-        <li><a href="/doorman/{{ accessevent.id }}/">{{ accessevent.user }}</a></li>
-        <li><a href="/doorman/{{ accessevent.id }}/">{{ accessevent.event_date }}</a></li>
-    {% endfor %}
-    </ul>
+{% if userprofile_list %}
+    <table>
+	    <tr>
+ 		<th> User  </th>
+	        <th> id  </th>
+            	<th> rfid access ?  </th>
+            	<th> frif tag #  </th>
+            </tr>
+    	{% for up in userprofile_list %}
+		<tr>	
+			<td> <a href="/doorman/{{ up.id }}/dooraccess/">{{ up.user }}</a> </td>
+			<td> {{ up.id }} </td>
+			<td> {{ up.rfid_access }} </td>
+			<td> {{ up.rfid_tag }} </td>
+        
+		</tr>
+   	{% endfor %}
+    </table>
 {% else %}
     <p>No users are available.</p>
 {% endif %}
