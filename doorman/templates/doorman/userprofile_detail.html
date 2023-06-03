@@ -1,11 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en-us" >
-<head>
-	<title>doorman user profile detail</title>
-    	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-</head>
-<body>
+{% extends "base_generic.html" %}
+
+{% block content   %}
 <h1>Doorman User Profile Detail</h1>
 
 <h1>{{ object.user }}</h1>
@@ -13,16 +8,6 @@
 <p>rfid tag: {{ object.rfid_tag }}</p>
 <p>rfid label: {{ object.rfid_label }}</p>
 <p>Update Date: {{ object.update_date }}</p>
-<p>Sync Date: {{ object.sync_date }}</p>
-<p>
-	<a
-			href="http://192.168.1.109:8888/admin/">Admin
-	</a>
+<p>Sync Date: {{ object.sync_date }}</>
 
-</p>
-
-
-
-</body>
-</html>
-
+{% endblock %}

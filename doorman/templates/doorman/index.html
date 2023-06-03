@@ -1,26 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en-us" >
-<head>
-<title>Django Index</title>
-<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+{% extends "base_generic.html" %}
 
+<title>Django Index</title>
+<!--
 <style>
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
 </style>
+-->
 
-</head>
-<body>
+{% block content %}
 {% if userprofile_list %}
     <table>
 	    <tr>
  		<th> User  </th>
 	        <th> id  </th>
             	<th> rfid access ?  </th>
-            	<th> frif tag #  </th>
+            	<th> rfif tag #  </th>
             </tr>
     	{% for up in userprofile_list %}
 		<tr>	
@@ -35,6 +32,6 @@ table, th, td {
 {% else %}
     <p>No users are available.</p>
 {% endif %}
-</body>
-</html>
+
+{%  endblock %}
 

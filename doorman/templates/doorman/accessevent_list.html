@@ -1,11 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en-us" >
-<head>
-	<title>doorman userprofile list</title>
-    	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-</head>
-<body>
+{% extends "base_generic.html" %}
+
+{% block content %}
+
 <h1>User door access list</h1>
 <ul>
 {% for access in object_list %}
@@ -13,6 +9,7 @@
 </li>
 {% endfor %}
 <?ul>
-</body>
-</html>
+
+{% endblock %}
+
 
