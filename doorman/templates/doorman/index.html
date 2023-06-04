@@ -1,14 +1,7 @@
 {% extends "base_generic.html" %}
 
 <title>Django Index</title>
-<!--
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
--->
+
 
 {% block content %}
 {% if userprofile_list %}
@@ -16,8 +9,11 @@ table, th, td {
 	    <tr>
  		<th> User  </th>
 	        <th> id  </th>
-            	<th> rfid access ?  </th>
-            	<th> rfif tag #  </th>
+            	<th> RFID access ?  </th>
+            	<th> RFID tag HEX  </th>
+             	<th> RFID tag #  </th>
+             	<th>Update date</th>
+             	<th>Sync date</th>
             </tr>
     	{% for up in userprofile_list %}
 		<tr>	
@@ -25,7 +21,11 @@ table, th, td {
 			<td> {{ up.id }} </td>
 			<td> {{ up.rfid_access }} </td>
 			<td> {{ up.rfid_tag }} </td>
-        
+       			<td> {{ up.rfid_label }} </td>
+ 			<td> {{ up.update_date }} </td>
+       			<td> {{ up.sync_date }} </td>
+ 
+
 		</tr>
    	{% endfor %}
     </table>
