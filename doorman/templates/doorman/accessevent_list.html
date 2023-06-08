@@ -1,14 +1,36 @@
 {% extends "base_generic.html" %}
 
+
+{% block title %}
+	
+<title> User Access Time and Date</title>
+
+
+{% endblock  %}
+
 {% block content %}
 
 <h1>User door access list</h1>
-<ul>
-{% for access in object_list %}
-<li>{{access.user}} - {{ access.event_date }}
-</li>
-{% endfor %}
-<?ul>
+
+
+<table>
+	<tr>
+		<th>  User  </th>
+		<th>  Date Time  </th>
+
+	</tr>	
+
+	
+	{% for access in object_list %}
+		<tr>
+			<td>  {{access.user}}  </td>
+			<td>  {{ access.event_date }}  </td>
+
+		</tr>
+
+	{% endfor %}
+
+</table>
 
 {% endblock %}
 

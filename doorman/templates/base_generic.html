@@ -28,8 +28,14 @@
         <div class="col-sm-2">
           {% block sidebar %}
             <ul class="sidebar-nav">
-              <li><a href="{% url 'doorman:index' %}">Index</a></li>
-              <li><a href="">doorman:home</a></li>
+
+		<li><a href="http://localhost:8888/admin/">Admin</a></li>
+
+		<li><a href="">Index</a></li>
+	
+		<li><a href="{% url 'doorman:index' %}">Index</a></li>
+
+	      
             </ul>
           {% endblock %}
         </div>

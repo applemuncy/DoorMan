@@ -45,10 +45,13 @@ for storing when we let ppl in
 """
 
 class AccessEvent(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,)
+    user = models.ForeignKey(UserProfile,on_delete=models.CASCADE,)
     event_date = models.DateTimeField(auto_now = True)
     def __str__(self):
-        return self.user.username
-#         return "' ".join([self.user.username, self.event_date])
+        u=self.user
+        ud = self.event_date
+        n=u.__str__()
+        d= ud.__str__()
+        return "    ".join([ n, d])
 
 
